@@ -1,0 +1,43 @@
+@import '@nativescript/theme/css/core.css';
+@import '@nativescript/theme/css/default.css';
+
+.page {
+    background-color: #f0f0f5;
+}
+
+.action-bar {
+    background-color: #4a4af4;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #4a4af4;
+    color: white;
+}
+
+.text-green {
+    color: #28a745;
+}
+
+.text-red {
+    color: #dc3545;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10;
+    margin: 10;
+    padding: 15;
+}
+
+.sidebar {
+    background-color: #4a4af4;
+    color: white;
+}
+
+.sidebar Label {
+    color: white;
+    font-size: 16;
+    margin: 10 0;
+    padding: 10;
+}

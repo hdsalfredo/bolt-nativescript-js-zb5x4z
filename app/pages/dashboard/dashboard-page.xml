@@ -1,0 +1,72 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="Finanças Pessoais" class="action-bar" />
+    <GridLayout columns="auto, *" rows="*">
+        <!-- Sidebar -->
+        <StackLayout col="0" class="sidebar">
+            <Label text="Menu Principal" tap="{{ onMenuTap }}" />
+            <Label text="Categorias" tap="{{ onCategoriasTap }}" />
+            <Label text="Contas" tap="{{ onContasTap }}" />
+            <Label text="Relatórios" tap="{{ onRelatoriosTap }}" />
+            <Label text="Transações" tap="{{ onTransacoesTap }}" />
+            <Label text="Configurar" tap="{{ onConfigurarTap }}" />
+            <Label text="Ajuda" tap="{{ onAjudaTap }}" />
+            <Label text="Sair do Sistema" tap="{{ onSairTap }}" />
+        </StackLayout>
+
+        <!-- Main Content -->
+        <ScrollView col="1">
+            <StackLayout>
+                <!-- Total Balance -->
+                <GridLayout rows="auto, auto" columns="*, auto" class="card">
+                    <Label text="Saldo Total" row="0" col="0" />
+                    <Label text="{{ saldoTotal }}" row="0" col="1" class="text-green" />
+                    <Label text="Última operação" row="1" col="0" />
+                    <Label text="{{ ultimaOperacao }}" row="1" col="1" />
+                </GridLayout>
+
+                <!-- Quick Actions -->
+                <GridLayout rows="auto" columns="*, *" class="m-t-10">
+                    <Button text="VER OPR" tap="{{ onVerOperacoes }}" class="btn-primary" col="0" />
+                    <Button text="DESPESAS" tap="{{ onVerDespesas }}" class="btn-primary" col="1" />
+                </GridLayout>
+
+                <!-- Financial Summary -->
+                <GridLayout rows="auto, auto, auto, auto" columns="*, *" class="card">
+                    <Label text="Total Entrada" row="0" col="0" />
+                    <Label text="{{ totalEntrada }}" row="0" col="1" class="text-green" />
+                    <Label text="Total Pendências" row="1" col="0" />
+                    <Label text="{{ totalPendencias }}" row="1" col="1" class="text-red" />
+                    <Label text="Total Despesas" row="2" col="0" />
+                    <Label text="{{ totalDespesas }}" row="2" col="1" />
+                    <Label text="Receitas" row="3" col="0" />
+                    <Label text="{{ receitas }}" row="3" col="1" class="text-green" />
+                </GridLayout>
+
+                <!-- Income Graph -->
+                <GridLayout class="card">
+                    <Label text="Gráfico de Renda (Em desenvolvimento)" />
+                </GridLayout>
+
+                <!-- Recent Transactions -->
+                <StackLayout class="card">
+                    <Label text="Últimas Operações" class="h2" />
+                    <ListView items="{{ recentTransactions }}">
+                        <ListView.itemTemplate>
+                            <GridLayout columns="auto, *, auto" rows="auto, auto">
+                                <Image src="{{ icon }}" width="40" height="40" row="0" rowSpan="2" col="0" />
+                                <Label text="{{ description }}" row="0" col="1" />
+                                <Label text="{{ category }}" row="1" col="1" class="text-muted" />
+                                <Label text="{{ amount }}" row="0" rowSpan="2" col="2" class="{{ amountClass }}" />
+                            </GridLayout>
+                        </ListView.itemTemplate>
+                    </ListView>
+                </StackLayout>
+
+                <!-- Expense Pie Chart -->
+                <GridLayout class="card">
+                    <Label text="Gráfico de Despesas do Mês (Em desenvolvimento)" />
+                </GridLayout>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+</Page>
